@@ -4,7 +4,7 @@
 - [Cypress](https://www.cypress.io/) - Framework de testes end-to-end
 - Node.js
 - JavaScript
-- 
+
 # Pré- requisitos
   - Node.js 
   - npm
