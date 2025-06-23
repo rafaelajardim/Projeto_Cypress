@@ -6,5 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     video: true,
+    videosFolder: 'cypress/videos',
   },
 });

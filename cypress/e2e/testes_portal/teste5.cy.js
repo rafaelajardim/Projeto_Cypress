@@ -1,18 +1,20 @@
 describe('Teste busca por Portal Integra', () => {
-  it('Digita no campo de busca e clica no botão buscar', () => {
-    cy.visit('https://integra.ifrs.edu.br/tecnologias'); 
+  it('Deve digitar no campo de busca e verificar os resultados', () => {
+    // Acessa a página de tecnologias do IFRS
+    cy.visit('https://integra.ifrs.edu.br/tecnologias');
 
-    // Digita Portal
+    // Digita 'portal integra' no campo de busca
     cy.get('#integra-filter-criterio')
       .should('be.visible')
       .type('portal integra');
 
-    // Aguarda o botão de busca ser habilitado 
+    // Clica no botão de busca
     cy.get('[data-cy="integra-filter-buscar"]')
-      .should('not.be.disabled')
+      .should('be.enabled') // mais direto que .not.be.disabled
       .click();
 
-    // resultados
-    cy.contains('portal integra', { matchCase: false, timeout: 10000 }).should('be.visible');
+    // Resultado 
+    cy.contains(/portal integra/i, { timeout: 10000 }) 
+      .should('be.visible');
   });
 });
